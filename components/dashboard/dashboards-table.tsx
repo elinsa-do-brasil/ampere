@@ -147,28 +147,28 @@ export function DashboardsTable({ dashboards, onUpdate }: DashboardsTableProps) 
                 <div className="flex gap-2">
                   <Button
                     size="icon"
-                    variant="ghost"
+                    variant="outline"
                     onClick={() => window.open(dashboard.iframeUrl, "_blank")}
                     title="Abrir URL"
                   >
-                    <ExternalLink className="h-4 w-4" />
+                    <ExternalLink />
                   </Button>
                   <Button
                     size="icon"
-                    variant="ghost"
+                    variant="outline"
                     onClick={() => handleEdit(dashboard)}
                     title="Editar"
                   >
-                    <Pencil className="h-4 w-4" />
+                    <Pencil />
                   </Button>
                   <Button
                     size="icon"
-                    variant="ghost"
+                    variant="destructive"
                     onClick={() => handleDelete(dashboard.id)}
                     disabled={isLoading}
                     title="Excluir"
                   >
-                    <Trash2 className="h-4 w-4 text-destructive" />
+                    <Trash2 />
                   </Button>
                 </div>
               </TableCell>
