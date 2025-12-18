@@ -6,7 +6,14 @@ export async function getOrganizationBySlug(slug: string) {
       where: {
         slug: slug
       },
-      include: { members: { include: { user: true } } }
+      include: {
+        members: { include: { user: true } },
+        _count: {
+          select: {
+            dashboards: true
+          }
+        }
+      }
     });
 
     return organizationBySlug
