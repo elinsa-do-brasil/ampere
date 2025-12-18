@@ -41,7 +41,7 @@ export default async function DashboardsAdminPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold">Gerenciar Dashboards</h1>
+        <h1 className="scroll-m-20 text-2xl font-semibold tracking-tight">Gerenciar dashboards</h1>
         <p className="text-muted-foreground mt-1">
           Gerencie os dashboards Power BI de {organization?.name || "sua organização"}
         </p>
