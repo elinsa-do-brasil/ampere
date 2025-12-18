@@ -14,6 +14,18 @@ import type { IconType } from "react-icons";
 import { Member } from "@/prisma/client/client";
 
 
+/**
+ * Props para o componente InfosCard.
+ *
+ * IMPORTANTE: Os campos em `_count` devem corresponder ao que é retornado
+ * pela query `getOrganizationBySlug` em `auth/actions/organizations.ts`.
+ *
+ * Se a query não inclui um campo no `_count.select`, ele não estará disponível
+ * e não deve ser obrigatório aqui. Marque como opcional (`?:`) ou remova.
+ *
+ * Exemplo: se a query tem `_count: { select: { dashboards: true } }`,
+ * então `invitations` não estará presente no retorno.
+ */
 interface InfosCardProps {
   organization: {
     name: string;
@@ -23,7 +35,10 @@ interface InfosCardProps {
     members: Member[];
     _count: {
       dashboards: number;
-      invitations: number;
+      // invitations foi removido pois não está sendo selecionado na query
+      // Se precisar no futuro, adicione `invitations: true` no _count.select
+      // da função getOrganizationBySlug e descomente a linha abaixo:
+      // invitations: number;
     };
   };
 }
