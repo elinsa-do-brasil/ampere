@@ -76,8 +76,8 @@ export function AddDashboardForm({ organizationId, onSuccess }: AddDashboardForm
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button>
-          <Plus className="h-4 w-4 mr-2" />
-          Novo Dashboard
+          <Plus />
+          Novo dashboard
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[500px]">
