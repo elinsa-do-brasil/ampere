@@ -1,6 +1,7 @@
 // dependências:
 import Link from 'next/link';
-
+import Image from 'next/image';
+import AmperLogo from '@/public/logo.png';
 interface LogoProps {
   className?: string
 }
@@ -9,9 +10,12 @@ export function Logo({ className }: LogoProps ){
   return (
     <Link 
       href="/"
-      className={`font-averia text-4xl -translate-y-[3px] select-none ${className}`}
+      className={`-translate-y-[3px] select-none ${className}`}
     >
-      boreas
+      {/* <Image src={AmperLogo} alt="Logo" width={24} height={24}/> */}
+      <p className="font-averia text-2xl">
+        amper<span className="text-[#96E530] font-bold">e</span>
+      </p>
     </Link>
   );
 }
