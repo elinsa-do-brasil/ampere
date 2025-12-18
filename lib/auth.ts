@@ -16,19 +16,9 @@ export const auth = betterAuth({
     microsoft: {
       clientId: process.env.MICROSOFT_CLIENT_ID as string,
       clientSecret: process.env.MICROSOFT_CLIENT_SECRET as string,
-      // Optional
-      tenantId: process.env.MICROSOFT_TENANT_ID as string,
-      authority: "https://login.microsoftonline.com", // Authentication authority URL
-      prompt: "select_account", // Forces account selection
-    },
-    google: {
-      clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-      accessType: "offline",
-    },
-    github: {
-      clientId: process.env.GITHUB_CLIENT_ID as string,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+      tenantId: process.env.MICROSOFT_TENANT_ID as string, // restrige o login para usuários da empresa dona do tenant
+      authority: "https://login.microsoftonline.com",
+      prompt: "select_account", // força a seleção de uma conta
     },
   },
   plugins: [
