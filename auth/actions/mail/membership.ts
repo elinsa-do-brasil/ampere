@@ -13,7 +13,7 @@ export async function sendWelcomeEmail({
   org
 }: SendWelcomeEmailParams ) {
   const { data, error } = await resend.emails.send({
-    from: "Raauth <membership@mail.raave.dev>",
+    from: "Ampere <ampere@mail.raave.dev>",
     to: [user.email],
     subject: "Bem-vindo à organização",
     text: `Oi, ${user.name}. Você foi adicionado à ${org.name}`
@@ -38,7 +38,7 @@ export async function sendRemovalEmail({
   org
 }: SendWelcomeEmailParams ) {
   const { data, error } = await resend.emails.send({
-    from: "Raauth <membership@mail.raave.dev>",
+    from: "Ampere <ampere@mail.raave.dev>",
     to: [user.email],
     subject: "Remoção da organização",
     text: `Oi, ${user.name}. Você foi removido da ${org.name}`

@@ -23,7 +23,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "404 · Raauth",
+  title: "404 · Ampere",
   description: "A página que você está procurando não foi encontrada.",
 };
 

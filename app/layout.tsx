@@ -33,14 +33,14 @@ const geistMono = Geist_Mono({
 // definição de metadados globais:
 export const metadata: Metadata = {
   title: {
-    template: "Raauth: %s",
-    default: "Raauth",
+    template: "Ampere: %s",
+    default: "Ampere",
   },
   generator: "Next.js",
-  applicationName: "raauth",
-  authors: [{ name: "Raave Aires", url: "https://githb.com/raave-aires" }],
+  applicationName: "ampere",
+  authors: [{ name: "Raave Aires", url: "https://githb.com/raave-aires" },{ name: "Elinsa do Brasil", url: "https://github.com/elinsa-do-brasil" }],
   creator: "Raave Aires",
-  publisher: "Raave Aires",
+  publisher: "Elinsa do Brasil",
 };
 
 export default function RootLayout({

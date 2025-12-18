@@ -2,6 +2,8 @@ import { getServerSession } from "@/auth/actions/session";
 import { getDashboardsByOrganization } from "@/auth/actions/dashboards";
 import { DashboardsCard } from "@/app/(main)/dashboards-cards/dashboard-card";
 import { db } from "@/lib/db";
+import { Button } from "@/components/ui/button";
+import { AtSign } from "lucide-react";
 
 export default async function Page() {
   const session = await getServerSession();
@@ -10,10 +12,13 @@ export default async function Page() {
   if (!session?.session?.activeOrganizationId) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[50vh] text-center">
-        <h2 className="text-2xl font-bold mb-2">Bem-vindo ao RAAuth</h2>
+        <h2 className="text-2xl font-bold mb-2">Bem-vindo ao Ampere</h2>
         <p className="text-muted-foreground">
-          Selecione uma organização para ver os dashboards disponíveis.
+          Um administrador deve concluir a configuração da sua organização. Por favor, aguarde o administrador finalizar a configuração. Caso precise de ajuda, entre em contato com o suporte.
         </p>
+        <Button asChild>
+          <a href="maito:suporte@mail.raave.dev"><AtSign /> Contato</a>
+        </Button>
       </div>
     );
   }

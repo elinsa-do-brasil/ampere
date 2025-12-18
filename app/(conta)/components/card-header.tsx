@@ -10,13 +10,13 @@ import Link from "next/link";
 // arquivos:
 import Logo from "@/public/logo.png";
 
-interface RaauthCardHeaderProps {
+interface AmperCardHeaderProps {
   login?:  boolean;
 }
 
 // TODO: Após o primeiro deploy, substituir a importação de Logo por uma importação via CDN da Vercel, apontando o link para o arquivo logo.png que estará no domínio do projeto.
 
-export function AmperCardHeader({ login = false }: RaauthCardHeaderProps) {
+export function AmperCardHeader({ login = false }: AmperCardHeaderProps) {
   return (
     <CardHeader>
       <CardTitle className="flex justify-center items-center">
