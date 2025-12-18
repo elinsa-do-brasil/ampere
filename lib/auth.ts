@@ -12,6 +12,11 @@ export const auth = betterAuth({
   database: prismaAdapter(db, {
     provider: "postgresql",
   }),
+
+  // TODO: Configura envio de e-mail de verificação na criação de conta com e-mail e senha.
+  emailAndPassword: { 
+    enabled: true, 
+  }, 
   socialProviders: {
     microsoft: {
       clientId: process.env.MICROSOFT_CLIENT_ID as string,
