@@ -1,10 +1,18 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "../ui/separator";
-import { Button } from "../ui/button";
-import Link from "next/link";
-import { ChartNoAxesColumnIncreasing, Users, LayoutDashboard, Calendar } from "lucide-react";
-import { Member } from "@/prisma/client/client";
+// componentes:
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
+import { Separator } from "@/components/ui/separator";
+
+// ícones:
+import { ChartNoAxesColumnIncreasing, Calendar } from "lucide-react";
+import { LuChartNoAxesColumnIncreasing as LuChart, LuUsers } from "react-icons/lu";
+
+// tipos:
+import type { IconType } from "react-icons";
+import { Member } from "@/prisma/client/client";
+
 
 interface InfosCardProps {
   organization: {
@@ -20,7 +28,7 @@ interface InfosCardProps {
   };
 }
 
-function StatsItem({ label, value, icon: Icon }: { label: string; value: number; icon: any }) {
+function StatsItem({ label, value, icon: Icon }: { label: string; value: number; icon: IconType }) {
   return (
     <div className="flex flex-col items-center justify-center rounded-lg bg-muted/50 border border-transparent hover:border-border transition-colors gap-y-3 aspect-square">
       <Icon className="size-4 text-muted-foreground" />
@@ -66,12 +74,12 @@ export function InfosCard({ organization }: InfosCardProps) {
           <StatsItem
             label={organization.members.length === 1 ? "Membro" : "Membros"}
             value={organization.members.length}
-            icon={Users}
+            icon={LuUsers}
           />
           <StatsItem
             label={organization._count.dashboards === 1 ? "Dashboard" : "Dashboards"}
             value={organization._count.dashboards}
-            icon={LayoutDashboard}
+            icon={LuChart}
           />
         </div>
 
