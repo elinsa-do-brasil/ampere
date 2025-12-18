@@ -11,13 +11,13 @@ export default async function Page() {
   // Se não há organização ativa, mostra mensagem
   if (!session?.session?.activeOrganizationId) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[50vh] text-center">
-        <h2 className="text-2xl font-bold mb-2">Bem-vindo ao Ampere</h2>
-        <p className="text-muted-foreground">
+      <div className="flex flex-col items-center justify-center min-h-[50vh] text-center gap-5">
+        <h2 className="text-2xl font-bold mb-2 font-averia">Bem-vindo ao Ampere</h2>
+        <p className="text-muted-foreground max-w-1/3">
           Um administrador deve concluir a configuração da sua organização. Por favor, aguarde o administrador finalizar a configuração. Caso precise de ajuda, entre em contato com o suporte.
         </p>
         <Button asChild>
-          <a href="maito:suporte@mail.raave.dev"><AtSign /> Contato</a>
+          <a href="mailto:suporte@mail.raave.dev" target="_blank"><AtSign /> Contato</a>
         </Button>
       </div>
     );
