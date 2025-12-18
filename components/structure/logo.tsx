@@ -1,7 +1,5 @@
 // dependências:
 import Link from 'next/link';
-import Image from 'next/image';
-import AmperLogo from '@/public/logo.png';
 interface LogoProps {
   className?: string
 }
