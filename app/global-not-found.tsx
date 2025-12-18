@@ -44,6 +44,7 @@ export default function Page() {
             <div>
               <p>Hum... Não temos esta página.</p>
               {/* Utiliza a tag <a> para forçar o recarregamento da página e garantir a troca correta de layout ao sair da página 404. */}
+              {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
               <a
                 href="/"
                 className="underline flex items-center gap-2"
