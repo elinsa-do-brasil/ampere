@@ -79,14 +79,14 @@ function MemberActionsCell({ member, organizationId, user }: { member: MemberWit
     // Verifica se não está pendente E o estado indica sucesso
     if (!isPending && state?.success === true) {
       toast.success("Membro removido com sucesso.");
-      setOpen(false);
+      startTransition(() => setOpen(false));
       router.refresh();
     }
     // Opcional: Tratar erros
     if (!isPending && state?.success === false) {
       toast.error("Houve um erro ao remover o membro. Tente novamente.");
     }
-  }, [isPending, state]); // Dependências: Roda sempre que isPending ou state mudar
+  }, [isPending, state, router]); // Dependências: Roda sempre que isPending ou state mudar
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

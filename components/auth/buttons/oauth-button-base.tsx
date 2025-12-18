@@ -35,6 +35,7 @@ export function OAuthButtonBase({
     } catch (error) {
       // se der erro, reabilita o botão
       setLoading(false);
+      console.log(error);
     }
   };
 

@@ -70,7 +70,8 @@ export function OrganizationSwitcher({ organizations, preferredActiveOrganizatio
         }
       } catch (error) {
         if (silent) {
-          toast.error("Nao foi possivel definir a organizacao ativa");
+          toast.error("Nao foi possivel definir a organizacao ativa. Tente novamente.",);
+          console.error(error);
         }
       } finally {
         isSwitchingRef.current = false;

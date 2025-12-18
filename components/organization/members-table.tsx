@@ -1,7 +1,7 @@
+// componentes:
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -25,7 +25,7 @@ export function MembersTable({ members }: MembersTablePros) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {members.map((member: any) => (
+        {members.map((member: any) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
           <TableRow key={member.id}>
             <TableCell>{member.user.name}</TableCell>
             <TableCell>{member.user.email}</TableCell>

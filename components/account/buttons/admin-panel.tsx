@@ -1,12 +1,15 @@
-import { Button } from "@/components/ui/button";
-import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
+//bibliotecas, libs e funções:
 import { authClient } from "@/lib/auth-client";
-import { IdCardLanyard } from "lucide-react";
+
+// componentes:
 import Link from "next/link";
+import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
+
+// ícones:
+import { IdCardLanyard } from "lucide-react";
 
 export function AdminPanel(){
   const { data: activeOrganization } = authClient.useActiveOrganization();
-
   return(
     // TODO: implementar checagem de roles
     <DropdownMenuItem asChild>

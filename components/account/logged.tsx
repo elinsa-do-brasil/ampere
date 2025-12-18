@@ -6,26 +6,19 @@ import { useRouter } from "next/navigation";
 import { type Organization } from "@/prisma/client/client";
 
 // componentes:
-import { AccessLevelIcon } from "@/components/account/access-level-icon";
 import { OrganizationSwitcher } from "@/components/account/organization-switcher";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
-  DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
 // ícones:
-import { ArrowDownUp, BriefcaseBusiness, CircleUser, LogOut, SquareUser } from "lucide-react";
+import { CircleUser, LogOut } from "lucide-react";
 import { AdminPanel } from "./buttons/admin-panel";
 
 

@@ -68,17 +68,15 @@ function UserActionCell({ user, organizationId }: { user: User, organizationId: 
 
   // 2. O useEffect para monitorar a conclusão
   useEffect(() => {
-    // Verifica se não está pendente E o estado indica sucesso
     if (!isPending && state?.success === true) {
       toast.success("Membro adicionado com sucesso.");
-      setOpen(false);
+      startTransition(() => setOpen(false));
       router.refresh();
     }
-    // Opcional: Tratar erros
     if (!isPending && state?.success === false) {
       toast.error("Houve um erro ao adicionar o membro. Tente novamente.");
     }
-  }, [isPending, state, router ]); // Dependências: Roda sempre que isPending ou state mudar
+  }, [isPending, state, router]);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
