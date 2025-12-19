@@ -62,7 +62,7 @@ export function OrganizationSwitcher({ organizations, preferredActiveOrganizatio
         if (silent) {
           await changePromise;
         } else {
-          await toast.promise(changePromise, {
+            toast.promise(changePromise, {
             loading: "Alterando organizacao",
             success: "Organizacao alterada",
             error: "Houve um erro inesperado ao alterar organizacao",
