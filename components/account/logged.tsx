@@ -19,7 +19,8 @@ import {
 
 // ícones:
 import { CircleUser, LogOut } from "lucide-react";
-import { AdminPanel } from "./buttons/admin-panel";
+import { AdminPanel } from "./management-options";
+import { AddDashboard } from "./add-dashboard";
 
 
 interface LoggedAccountProps {
@@ -58,6 +59,7 @@ export function LoggedAccount({ session, organizations, preferredActiveOrganizat
         </DropdownMenuLabel>
 
         <DropdownMenuSeparator />
+        
         <DropdownMenuGroup>
           {organizations.length > 0 && (
             <OrganizationSwitcher
@@ -72,10 +74,9 @@ export function LoggedAccount({ session, organizations, preferredActiveOrganizat
             </DropdownMenuItem>
           )}
 
-          
-            <AdminPanel />
-          
+          <AdminPanel />
 
+          <AddDashboard />
           <DropdownMenuItem
             variant="destructive"
             onClick={async () => {
