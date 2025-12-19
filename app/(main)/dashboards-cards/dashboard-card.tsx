@@ -12,7 +12,7 @@ export function DashboardsCard({ title, description, href }: DashboardsCardProps
 
 
   return (
-    <Card className="w-sm">
+    <Card>
       <CardHeader>
         <CardTitle className="text-2xl">
           {title}
