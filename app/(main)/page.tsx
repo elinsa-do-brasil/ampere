@@ -4,12 +4,23 @@ import { DashboardsCard } from "@/app/(main)/dashboards-cards/dashboard-card";
 import { db } from "@/lib/db";
 import { Button } from "@/components/ui/button";
 import { AtSign } from "lucide-react";
+import { AutoActivateOrganization } from "@/components/account/auto-activate-organization";
 
 export default async function Page() {
   const session = await getServerSession();
 
-  // Se não há organização ativa, mostra mensagem
+  // Se não há organização ativa, tenta encontrar uma para ativar
   if (!session?.session?.activeOrganizationId) {
+    const firstMember = await db.member.findFirst({
+      where: {
+        userId: session?.user?.id,
+      },
+    });
+
+    if (firstMember) {
+      return <AutoActivateOrganization organizationId={firstMember.organizationId} />;
+    }
+
     return (
       <div className="flex flex-col items-center justify-center min-h-[50vh] text-center gap-5">
         <h2 className="text-2xl font-bold mb-2 font-averia">Bem-vindo ao Ampere</h2>
