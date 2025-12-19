@@ -1,7 +1,7 @@
 import { getServerSession } from "@/auth/actions/session";
 import { getAllDashboardsByOrganization } from "@/auth/actions/dashboards";
 import { db } from "@/lib/db";
-import { redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { DashboardsManagement } from "./dashboards-management";
 
 export default async function DashboardsAdminPage() {
@@ -9,7 +9,7 @@ export default async function DashboardsAdminPage() {
 
   // Se não há organização ativa, redireciona para home
   if (!session?.session?.activeOrganizationId) {
-    redirect("/");
+    notFound()
   }
 
   // Verifica se o usuário é admin ou owner
@@ -24,7 +24,7 @@ export default async function DashboardsAdminPage() {
 
   // Só admin e owner podem acessar
   if (userRole !== "admin" && userRole !== "owner") {
-    redirect("/");
+    notFound()
   }
 
   // Busca todos os dashboards da organização
