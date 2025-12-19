@@ -75,8 +75,7 @@ export function LoggedAccount({ session, organizations, preferredActiveOrganizat
           )}
 
           <AdminPanel />
-
-          <AddDashboard />
+          
           <DropdownMenuItem
             variant="destructive"
             onClick={async () => {
