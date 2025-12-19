@@ -69,9 +69,6 @@ export function LoginForm() {
         onSuccess: (ctx) => {
           setIsPending(false);
           toast.success(`Bem-vindo(a), ${ctx.data.user.name}!`)
-          // Força a invalidação do cache do router antes de navegar,
-          // garantindo que a página "/" seja re-renderizada com a sessão atualizada
-          router.refresh();
           router.push("/");
         },
         onError: (ctx) => {
