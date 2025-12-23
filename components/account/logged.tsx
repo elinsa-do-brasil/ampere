@@ -18,9 +18,10 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 // ícones:
-import { CircleUser, LogOut } from "lucide-react";
+import { CircleUser, Code, LifeBuoy, LogOut } from "lucide-react";
 import { AdminPanel } from "./management-options";
 import { AddDashboard } from "./add-dashboard";
+import Link from "next/link";
 
 
 interface LoggedAccountProps {
@@ -75,7 +76,17 @@ export function LoggedAccount({ session, organizations, preferredActiveOrganizat
           )}
 
           <AdminPanel />
+          <DropdownMenuSeparator />
+          <DropdownMenuItem asChild>
+            <Link href="/ajuda">
+            <LifeBuoy />
+            Ajuda</Link>
+          </DropdownMenuItem>
           
+          <DropdownMenuItem asChild>
+            <Link href="/licencas"> <Code />Licenças</Link>
+          </DropdownMenuItem>
+
           <DropdownMenuItem
             variant="destructive"
             onClick={async () => {
