@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 interface Dashboard {
   id: string;
   name: string;
-  iframeUrl: string;
+  reportId: string;
   description: string | null;
   requiredRole: string;
 }
