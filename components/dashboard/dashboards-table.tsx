@@ -30,12 +30,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Pencil, Trash2, ExternalLink } from "lucide-react";
+import { Pencil, Trash2 } from "lucide-react";
 
 interface Dashboard {
   id: string;
   name: string;
-  iframeUrl: string;
+  reportId: string;
   description: string | null;
   requiredRole: string;
 }
@@ -62,7 +62,7 @@ export function DashboardsTable({ dashboards, onUpdate }: DashboardsTableProps) 
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
-    iframeUrl: "",
+    reportId: "",
     description: "",
     requiredRole: "member",
   });
@@ -71,7 +71,7 @@ export function DashboardsTable({ dashboards, onUpdate }: DashboardsTableProps) 
     setEditingDashboard(dashboard);
     setFormData({
       name: dashboard.name,
-      iframeUrl: dashboard.iframeUrl,
+      reportId: dashboard.reportId,
       description: dashboard.description || "",
       requiredRole: dashboard.requiredRole,
     });
@@ -83,7 +83,7 @@ export function DashboardsTable({ dashboards, onUpdate }: DashboardsTableProps) 
     try {
       await updateDashboard(editingDashboard.id, {
         name: formData.name,
-        iframeUrl: formData.iframeUrl,
+        reportId: formData.reportId,
         description: formData.description || undefined,
         requiredRole: formData.requiredRole,
       });
@@ -148,14 +148,6 @@ export function DashboardsTable({ dashboards, onUpdate }: DashboardsTableProps) 
                   <Button
                     size="icon"
                     variant="outline"
-                    onClick={() => window.open(dashboard.iframeUrl, "_blank")}
-                    title="Abrir URL"
-                  >
-                    <ExternalLink />
-                  </Button>
-                  <Button
-                    size="icon"
-                    variant="outline"
                     onClick={() => handleEdit(dashboard)}
                     title="Editar"
                   >
@@ -196,12 +188,15 @@ export function DashboardsTable({ dashboards, onUpdate }: DashboardsTableProps) 
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="edit-iframeUrl">URL do Iframe</Label>
+              <Label htmlFor="edit-reportId">Report ID do Power BI</Label>
               <Input
-                id="edit-iframeUrl"
-                value={formData.iframeUrl}
-                onChange={(e) => setFormData({ ...formData, iframeUrl: e.target.value })}
+                id="edit-reportId"
+                value={formData.reportId}
+                onChange={(e) => setFormData({ ...formData, reportId: e.target.value })}
               />
+              <p className="text-xs text-muted-foreground">
+                O GUID do relatório no Power BI.
+              </p>
             </div>
 
             <div className="space-y-2">

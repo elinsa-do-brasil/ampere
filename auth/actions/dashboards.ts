@@ -7,7 +7,7 @@ import { getServerSession } from "@/auth/actions/session";
 export interface Dashboard {
   id: string;
   name: string;
-  iframeUrl: string;
+  reportId: string;
   description: string | null;
   requiredRole: string;
   organizationId: string;
@@ -17,7 +17,7 @@ export interface Dashboard {
 
 export interface CreateDashboardData {
   name: string;
-  iframeUrl: string;
+  reportId: string;
   description?: string;
   requiredRole: string;
   organizationId: string;
@@ -25,7 +25,7 @@ export interface CreateDashboardData {
 
 export interface UpdateDashboardData {
   name?: string;
-  iframeUrl?: string;
+  reportId?: string;
   description?: string;
   requiredRole?: string;
 }
@@ -102,7 +102,7 @@ export async function createDashboard(
   return db.dashboard.create({
     data: {
       name: data.name,
-      iframeUrl: data.iframeUrl,
+      reportId: data.reportId,
       description: data.description || null,
       requiredRole: data.requiredRole,
       organizationId: data.organizationId,

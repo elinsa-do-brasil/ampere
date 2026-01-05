@@ -33,7 +33,7 @@ import { Plus } from "lucide-react";
 
 interface FormData {
   name: string;
-  iframeUrl: string;
+  reportId: string;
   description: string;
   requiredRole: string;
 }
@@ -45,7 +45,7 @@ export function AddDashboard() {
   const { register, handleSubmit, reset, setValue, watch } = useForm<FormData>({
     defaultValues: {
       name: "",
-      iframeUrl: "",
+      reportId: "",
       description: "",
       requiredRole: "member",
     },
@@ -63,7 +63,7 @@ export function AddDashboard() {
     try {
       await createDashboard({
         name: data.name,
-        iframeUrl: data.iframeUrl,
+        reportId: data.reportId,
         description: data.description || undefined,
         requiredRole: data.requiredRole,
         organizationId: activeOrganization.id,
@@ -104,12 +104,15 @@ export function AddDashboard() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="iframeUrl">URL do Iframe</Label>
+            <Label htmlFor="reportId">Report ID do Power BI</Label>
             <Input
-              id="iframeUrl"
-              placeholder="https://app.powerbi.com/..."
-              {...register("iframeUrl", { required: true })}
+              id="reportId"
+              placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+              {...register("reportId", { required: true })}
             />
+            <p className="text-xs text-muted-foreground">
+              O GUID do relatório no Power BI.
+            </p>
           </div>
 
           <div className="space-y-2">

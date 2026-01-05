@@ -1,6 +1,7 @@
 import { notFound, redirect } from "next/navigation";
 import { getServerSession } from "@/auth/actions/session";
 import { db } from "@/lib/db";
+import { PowerBIReport } from "@/components/dashboard/powerbi-report";
 
 type Params = Promise<{ id: string }>;
 
@@ -56,11 +57,13 @@ export default async function DashboardViewerPage({ params }: { params: Params }
   }
 
   return (
-    <iframe
-      className="w-dvw container-h"
-      allowFullScreen
-      title={dashboard.name}
-      src={dashboard.iframeUrl}
-    ></iframe>
+    <div className="w-dvw container-h">
+      <PowerBIReport
+        reportId={dashboard.reportId}
+        dashboardId={dashboard.id}
+        className="w-full h-full"
+      />
+    </div>
   );
 }
+
