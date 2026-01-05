@@ -8,14 +8,14 @@ import type { PowerBIConfig } from "./types";
  * Get Power BI configuration from environment variables
  */
 export function getConfig(): PowerBIConfig {
-  const tenantId = process.env.MICROSOFT_TENANT_ID;
-  const clientId = process.env.MICROSOFT_CLIENT_ID;
-  const clientSecret = process.env.MICROSOFT_CLIENT_SECRET;
+  const tenantId = process.env.PANORAMAS_TENANT_ID;
+  const clientId = process.env.PANORAMAS_CLIENT_ID;
+  const clientSecret = process.env.PANORAMAS_CLIENT_SECRET;
   const workspaceId = process.env.POWERBI_WORKSPACE_ID;
 
   if (!tenantId || !clientId || !clientSecret || !workspaceId) {
     throw new Error(
-      "Missing required Power BI environment variables: MICROSOFT_TENANT_ID, MICROSOFT_CLIENT_ID, MICROSOFT_CLIENT_SECRET, POWERBI_WORKSPACE_ID"
+      "Missing required Power BI environment variables: PANORAMAS_TENANT_ID, PANORAMAS_CLIENT_ID, PANORAMAS_CLIENT_SECRET, POWERBI_WORKSPACE_ID"
     );
   }
 
